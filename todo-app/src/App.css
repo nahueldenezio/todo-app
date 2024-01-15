@@ -24,6 +24,7 @@ span {
   font-weight: 500;
 }
 
+
 .todo-list {
   display: flex;
   flex-direction: column;
@@ -58,8 +59,14 @@ button {
   gap: 8px;
   padding: 8px;
   border-radius: 8px;
+}
+
+.box, .remove-button {
+  margin-left: 4em;
   
 }
+
+
 
 .checkbox {
   cursor: pointer;

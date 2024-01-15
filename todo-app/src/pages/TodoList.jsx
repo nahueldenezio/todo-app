@@ -25,6 +25,10 @@ const TodoList = () => {
     }
   };
 
+  const handleRemoveTodo = (id) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  }
+
   // Guarda las tareas en el localStorage cada vez que se actualizan
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -44,9 +48,12 @@ const TodoList = () => {
           <button onClick={handleAddTodo}>Agregar</button>
         </div>
         {todos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} onToggle={handleToggle} />
+          <TodoItem key={todo.id} todo={todo} onToggle={handleToggle} onRemove={handleRemoveTodo}/>
         ))}
+        <button onClick={() => setTodos([])}>Limpiar lista</button>
+        <button onClick={() => setTodos(storedTodos)}>Restaurar lista</button>
       </div>
+
     </>
   );
 };
